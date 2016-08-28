@@ -1,3 +1,9 @@
+*.swp
+build
+.xcworkspace
+xcdebugger
+xcdebugger
+
 # Compiled Object files
 *.slo
 *.lo
