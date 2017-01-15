@@ -47,6 +47,7 @@ install:
 #  - cmake --build build -- -j$JOBS
 
 before_install:
+   echo “TRAVIS OS TARGET OS “ ${TRAVIS_OS_NAME} “ “ ${TARGET_OS}
    - sh ${TRAVIS_BUILD_DIR}/.travis/${TRAVIS_OS_NAME}.${TARGET_OS}.before_install.sh
 
 install:
