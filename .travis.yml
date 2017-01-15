@@ -49,8 +49,20 @@ install:
 #  - cmake . -Bbuild -DCMAKE_CXX_COMPILER="$CXX" -DCMAKE_C_COMPILER="$CC" -DCMAKE_BUILD_TYPE=$BUILD_TYPE
 #  - cmake --build build -- -j$JOBS
 
-#Build steps
+before_install:
+   - sh ${TRAVIS_BUILD_DIR}/.travis/${TRAVIS_OS_NAME}.${TARGET_OS}.before_install.sh
+
+install:
+   - sh ${TRAVIS_BUILD_DIR}/.travis/${TRAVIS_OS_NAME}.${TARGET_OS}.install.sh
+before_script:
+   - mkdir build && cd build
+
 script:
-  - mkdir build
-  - cd build
-  - cmake .. && make
+    - sh ${TRAVIS_BUILD_DIR}/.travis/${TRAVIS_OS_NAME}.${TARGET_OS}.script.sh
+    - make -j4
+
+#Build steps
+#script:
+#  - mkdir build
+#  - cd build
+#  - cmake .. && make
