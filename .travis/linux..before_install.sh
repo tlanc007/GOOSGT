@@ -7,3 +7,4 @@ sudo add-apt-repository ppa:beineri/opt-qt571-trusty -y
 
 sudo apt-get update -qq
 sudo apt-get install -qq qt57base
+sudo apt-get install -qq mesa-common-dev

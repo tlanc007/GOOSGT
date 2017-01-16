@@ -20,7 +20,7 @@ matrix:
       os: osx
       osx_image: xcode8
       compiler: clang
-    - env: GCC_VERSION=6 BUILD_TYPE=Debug COMPILER=g++-6
+    - env: GCC_VERSION=6 BUILD_TYPE=Debug COMPILER=g++-6 QT=qt57
       os: linux
       dist: trusty
       compiler: gcc
@@ -44,16 +44,15 @@ before_install:
 install:
   - if [[ -n "$CLANG_VERSION" ]]; then export CXX=clang++-$CLANG_VERSION CC=clang-$CLANG_VERSION; fi
   - if [[ -n "$GCC_VERSION" ]]; then export CXX=g++-$GCC_VERSION CC=gcc-$GCC_VERSION; fi
-  - JOBS=2
   - sh ${TRAVIS_BUILD_DIR}/.travis/${TRAVIS_OS_NAME}.${TARGET_OS}.install.sh
 
 before_script:
-   - if [[ "$TRAVIS_OS_NAME" = "linux" ]]; then source /opt/qt57/bin/qt57-env.sh; fi
+   - if [[ "$TRAVIS_OS_NAME" = "linux" && -n "$QT" ]]; then source /opt/${QT}/bin/${QT}-env.sh; fi
    - mkdir build && cd build
 
 script:
     - sh ${TRAVIS_BUILD_DIR}/.travis/${TRAVIS_OS_NAME}.${TARGET_OS}.script.sh
-    - make -j4
+    - make -j2
 
 #Build steps
 #script:
