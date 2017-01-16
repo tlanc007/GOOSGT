@@ -1,10 +1,18 @@
-language: cpp
+language: c++
 sudo: required
+
+
+addons:
+  apt:
+    packages:
+      - g++-6
+    sources: &sources
+      - ubuntu-toolchain-r-test
 
 cache:
   directories:
     - ${TRAVIS_BUILD_DIR}/deps/cmake
-    - ${TRAVIS_BUILD_DIR}/deps/llvm-3.8.1/install
+    - ${TRAVIS_BUILD_DIR}/deps/llvm-3.8.0/install
 
 matrix:
   include:
@@ -12,17 +20,9 @@ matrix:
       os: osx
       osx_image: xcode8
       compiler: clang
-    - env: GCC_VERSION=5 BUILD_TYPE=Debug
+    - env: GCC_VERSION=6 BUILD_TYPE=Debug COMPILER=g++-6
       os: linux
-      addons: &gcc5
-        apt:
-          packages: 
-             - libstc++-5-dev
-          sources:
-            - ubuntu-toolchain-r-test
-      - sudo apt-get update -qq
-      - sudo apt-get install -qq g++-5
-
+      compiler: gcc
 
 install:
   - if [[ -n "$CLANG_VERSION" ]]; then export CXX=clang++-$CLANG_VERSION CC=clang-$CLANG_VERSION; fi
