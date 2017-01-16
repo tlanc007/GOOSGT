@@ -3,7 +3,7 @@
 sudo add-apt-repository ppa:ubuntu-sdk-team/ppa -y
 
 # Qt 5.7
-sudo add-apt-repository --yes ppa:beineri/opt-qt57-trusty
+sudo add-apt-repository ppa:beineri/opt-qt571-trusty -y
 
 sudo apt-get update -qq
-sudo apt-get install -qq g++-6 qt57-meta-full
+sudo apt-get install -qq qt57base;  source /opt/qt57/bin/qt57-env.sh; 
