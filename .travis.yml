@@ -22,6 +22,7 @@ matrix:
       compiler: clang
     - env: GCC_VERSION=6 BUILD_TYPE=Debug COMPILER=g++-6
       os: linux
+      dist: trusty
       compiler: gcc
 
 install:
