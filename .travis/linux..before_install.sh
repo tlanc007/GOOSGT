@@ -6,4 +6,4 @@ sudo add-apt-repository ppa:ubuntu-sdk-team/ppa -y
 sudo add-apt-repository --yes ppa:beineri/opt-qt57-trusty
 
 sudo apt-get update -qq
-sudo apt-get install -qq qt57-meta-full
+sudo apt-get install -qq g++-6 qt57-meta-full
