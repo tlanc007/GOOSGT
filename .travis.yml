@@ -57,7 +57,8 @@ install:
    - sh ${TRAVIS_BUILD_DIR}/.travis/${TRAVIS_OS_NAME}.${TARGET_OS}.install.sh
 
 before_script:
-   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then
+  - |
+   if [[ "${TRAVIS_OS_NAME}" = "linux" ]]; then
      QT_ENV_SCRIPT=$(find /opt -name 'qt*-env.sh')
      source $QT_ENV_SCRIPT
   fi
