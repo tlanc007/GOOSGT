@@ -40,7 +40,7 @@ install:
 
 before_script:
    - if [[ "$TRAVIS_OS_NAME" = "linux" && -n "$QT" ]]; then source /opt/${QT}/bin/${QT}-env.sh; fi
-   ##- cd "${TRAVIS_BUILD_DIR}"
+   - cd "${TRAVIS_BUILD_DIR}/build"
    ##- cmake . -Bbuild -DCMAKE_CXX_COMPILER="$CXX" -DCMAKE_C_COMPILER="$CC" -DCMAKE_BUILD_TYPE=$BUILD_TYPE
    - sh ${TRAVIS_BUILD_DIR}/.travis/${TRAVIS_OS_NAME}.${TARGET_OS}.before_script.sh
 
