@@ -45,7 +45,9 @@ before_script:
    - sh ${TRAVIS_BUILD_DIR}/.travis/${TRAVIS_OS_NAME}.${TARGET_OS}.before_script.sh
 
 script:
-    - cd build
+    - echo ${PWD}
+    - cd ${TRAVIS_BUILD_DIR} 
+    - echo ${PWD}
     ##- sh ${TRAVIS_BUILD_DIR}/.travis/${TRAVIS_OS_NAME}.${TARGET_OS}.script.sh
     - ctest --output-on-failure -j$JOBS
 
